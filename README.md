@@ -311,6 +311,6 @@ npm run build
 
 Built with ❤️ as a frontend internship assignment for **Softlend Fintech**
 
-© 2024 — Credit data is simulated for demo purposes only.
+© 2026 — Credit data is simulated for demo purposes only.
 
 </div>
