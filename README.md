@@ -1,47 +1,59 @@
 # 💳 Softlend — Credit Health & Loan Marketplace Dashboard
 
-A responsive React frontend application for the **Softlend** fintech platform. It lets users view their CIBIL credit score, explore personalised loan offers, simulate score improvements, and calculate EMIs — all powered by a static JSON data source with no backend required.
+<div align="center">
+
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://softlend-internship-assignment-sgsh.vercel.app/)
+[![Portfolio](https://img.shields.io/badge/👤%20Portfolio-Vijay-6366f1?style=for-the-badge)](https://vijay-portfolio-lemon.vercel.app/)
+[![GitHub](https://img.shields.io/badge/📦%20GitHub-Repository-24292e?style=for-the-badge&logo=github)](https://github.com/Vijay417-sys/Softlend-internship-assignment)
+
+**A fully responsive React fintech dashboard — credit score visualization, loan marketplace, EMI calculator, and day/night theming.**
+
+[🌐 Live App](https://softlend-internship-assignment-sgsh.vercel.app/) &nbsp;·&nbsp; [👤 Portfolio](https://vijay-portfolio-lemon.vercel.app/) &nbsp;·&nbsp; [📦 Source Code](https://github.com/Vijay417-sys/Softlend-internship-assignment)
+
+</div>
 
 ---
 
-## 🚀 Live Preview
+## 🖥️ Live Preview
 
-```
-npm start   →   http://localhost:3000
-```
+| 🌞 Day Mode | 🌙 Night Mode |
+|---|---|
+| Clean white UI with indigo accents | Deep navy dark theme |
+
+> **Hosted on Vercel:** https://softlend-internship-assignment-sgsh.vercel.app/
 
 ---
 
 ## ✨ Features
 
 ### 📊 Credit Dashboard
-- **Animated CIBIL Score Ring** — SVG arc that draws itself in with a smooth transition; color-coded red / amber / green based on score range
-- **Potential Score Card** — shows current vs. potential score with a dual-layer progress bar
-- **Credit Improvement Plan** — lists all score factors (high / medium / low impact) with actionable advice and estimated point gains
-- **Score Simulator** — interactive "what-if" tool to preview score after fixing specific factors
+- **Animated CIBIL Score Ring** — SVG arc animates itself in on load; color-coded **red** (< 650) / **amber** (650–749) / **green** (750+)
+- **Potential Score Card** — dual-layer progress bar comparing current vs. potential score after fixing high-impact items
+- **Credit Improvement Plan** — actionable factor cards (HIGH / MEDIUM / LOW impact) with estimated point gains and specific fix instructions
+- **Score Simulator** — interactive "what-if" tool: check off credit factors and see your score update in real time, plus which loan offers unlock
 
 ### 💰 Loan Offers
-- **Unlocked / Locked offer cards** — dynamically determined by comparing `min_score_required` against the user's live CIBIL score
-- **Debounced search** (300 ms) — filter offers by lender name without unnecessary re-renders
-- **Filter tabs** — All / Unlocked / Locked with animated indicator
-- **Empty states** — distinct messages for "no search results" vs "no unlocked offers"
-- **Confirmation Modal** — shows full loan summary before accepting
-- **Success Popup** — animated ✅ checkmark + confetti burst + offer summary card, auto-dismisses after 5 seconds
+- **Unlocked / Locked Cards** — dynamically computed by comparing `min_score_required` vs user's live CIBIL score
+- **Debounced Search** — 300 ms debounce on lender name search; no re-renders on every keystroke
+- **Filter Tabs** — All / ✓ Unlocked / 🔒 Locked with smooth animated underline indicator
+- **Empty States** — contextual messages for "no results" vs "no unlocked offers"
+- **Confirmation Modal** — full offer summary before accepting (amount, rate, tenure, EMI, fee)
+- **✅ Success Popup** — animated SVG checkmark, 8-directional confetti burst, offer summary card, and auto-dismiss progress bar after 5 seconds
 
 ### 🧮 EMI Calculator
-- **Default values pre-filled** — ₹5,00,000 principal · 10.5% rate · 36 months tenure
-- **Interactive sliders** with live fill gradient — drag to update any field instantly
-- **Quick loan presets** — Home Loan / Car Loan / Personal Loan / Education Loan
-- **Live result panel** — Monthly EMI, total interest, total payable, and principal/interest ratio bar with percentage labels
-- **Manual text inputs** — override any slider value by typing directly
-- **Reset to defaults** button
+- **Pre-filled Defaults** — opens with ₹5,00,000 · 10.5% · 36 months already calculated
+- **Interactive Sliders** — draggable range sliders with live gradient fill; result updates instantly
+- **Manual Text Inputs** — override any slider value by typing
+- **Quick Loan Presets** — one-click fill for Home Loan / Car Loan / Personal Loan / Education Loan
+- **Live Result Panel** — Monthly EMI, Total Interest, Total Payable, principal/interest ratio bar with % labels
+- **Reset to Defaults** button
 
-### 🌗 Day / Night Mode
-- Toggle in the header with an animated pill-style switch (☀️ / 🌙)
-- **Night mode** — clean deep dark navy (`#0f1219` base) — easy on the eyes
-- **Day mode** — bright white with indigo accents
-- Theme persisted in `localStorage` — survives page refresh
-- Smooth CSS variable transitions on **all** elements (no flash)
+### 🌗 Day / Night Theme
+- **Animated toggle** in the header (☀️ / 🌙 pill switch)
+- **Day mode** (default) — clean white with indigo accents
+- **Night mode** — deep navy dark (`#0f1219` base) — minimal eye strain
+- **`localStorage` persistence** — theme survives page refresh
+- **Smooth transitions** — CSS variable changes on every element via `transition: background-color, color, border-color`
 
 ---
 
@@ -50,72 +62,135 @@ npm start   →   http://localhost:3000
 ```
 softlend/
 ├── public/
-│   └── data.json                  # Static data source (customer + offers + score factors)
+│   ├── index.html
+│   └── data.json                        # Static API mock (customer + offers + score factors)
+│
 ├── src/
-│   ├── index.css                  # Global reset, CSS variables (day/night), animations
-│   ├── App.js                     # Root — theme state, tab routing, data fetch
-│   ├── App.module.css             # Header, nav, footer, theme toggle styles
-│   ├── utils.js                   # formatCurrency · formatDate · calculateEMI · getScoreCategory
-│   ├── data.json                  # (dev copy) Static mock data
+│   ├── index.js                         # React entry point
+│   ├── index.css                        # Global reset, CSS variables (day/night tokens), animations
+│   ├── App.js                           # Root — theme state, tab routing, async data fetch
+│   ├── App.module.css                   # Header, nav, theme toggle, footer styles
+│   ├── utils.js                         # formatCurrency · formatDate · calculateEMI · getScoreCategory
+│   ├── data.json                        # (dev) same mock data
+│   │
 │   └── components/
-│       ├── CreditDashboard/       # Score overview, improvement plan, score simulator
-│       ├── ScoreRing/             # Animated SVG arc gauge
-│       ├── ScoreFactorCard/       # Individual credit factor card
-│       ├── ScoreSimulator/        # What-if score improvement simulator
-│       ├── LoanOffers/            # Offer list with filter + search
-│       ├── OfferCard/             # Individual loan offer card (locked / unlocked)
-│       ├── ConfirmationModal/     # Confirm before accepting an offer
-│       ├── SuccessPopup/          # ✅ Post-acceptance animated success popup
-│       ├── EMICalculator/         # Interactive EMI tool with sliders & presets
-│       ├── LoadingSpinner/        # Loading state UI
-│       └── ErrorMessage/          # Error state with retry button
+│       ├── CreditDashboard/             # Score overview, improvement plan, score simulator
+│       │   ├── CreditDashboard.js
+│       │   └── CreditDashboard.module.css
+│       │
+│       ├── ScoreRing/                   # Animated SVG arc gauge
+│       │   ├── ScoreRing.js
+│       │   └── ScoreRing.module.css
+│       │
+│       ├── ScoreFactorCard/             # Individual credit factor card (impact badge + action text)
+│       │   ├── ScoreFactorCard.js
+│       │   └── ScoreFactorCard.module.css
+│       │
+│       ├── ScoreSimulator/              # What-if score simulator with checkbox factors
+│       │   ├── ScoreSimulator.js
+│       │   └── ScoreSimulator.module.css
+│       │
+│       ├── LoanOffers/                  # Offer list — filter tabs, debounced search, grid
+│       │   ├── LoanOffers.js
+│       │   └── LoanOffers.module.css
+│       │
+│       ├── OfferCard/                   # Individual offer card (locked / unlocked state)
+│       │   ├── OfferCard.js
+│       │   └── OfferCard.module.css
+│       │
+│       ├── ConfirmationModal/           # Pre-acceptance confirmation dialog
+│       │   ├── ConfirmationModal.js
+│       │   └── ConfirmationModal.module.css
+│       │
+│       ├── SuccessPopup/                # Post-acceptance animated success popup
+│       │   ├── SuccessPopup.js
+│       │   └── SuccessPopup.module.css
+│       │
+│       ├── EMICalculator/               # Interactive EMI tool with sliders & presets
+│       │   ├── EMICalculator.js
+│       │   └── EMICalculator.module.css
+│       │
+│       ├── LoadingSpinner/              # Loading state UI
+│       │   ├── LoadingSpinner.js
+│       │   └── LoadingSpinner.module.css
+│       │
+│       └── ErrorMessage/               # Error state with retry button
+│           ├── ErrorMessage.js
+│           └── ErrorMessage.module.css
+│
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
 ---
 
 ## 🔧 Tech Stack
 
-| Layer | Technology |
+| Category | Technology |
 |---|---|
-| UI Framework | React 18 (functional components + hooks) |
-| Styling | CSS Modules + CSS Custom Properties (variables) |
-| State Management | `useState`, `useEffect`, `useMemo` |
-| Data Source | Static `data.json` fetched via `fetch()` |
-| Type Checking | PropTypes |
-| Build Tool | Create React App (react-scripts 5) |
-| Fonts | Inter (Google Fonts) |
+| **UI Framework** | React 18 — functional components + hooks |
+| **Styling** | CSS Modules + CSS Custom Properties (variables) |
+| **State** | `useState`, `useEffect`, `useMemo` — no external state lib |
+| **Data** | Static `data.json` fetched with native `fetch()` |
+| **Type Checking** | PropTypes |
+| **Build Tool** | Create React App (react-scripts 5) |
+| **Deployment** | Vercel |
+| **Fonts** | Inter (Google Fonts) |
 
 ---
 
 ## 📐 Key Implementation Details
 
 ### Theme System
-Two complete CSS variable sets (`[data-theme="night"]` and `[data-theme="day"]`) are defined in `index.css`. Switching themes sets `document.documentElement.setAttribute('data-theme', theme)` — all CSS variables cascade instantly. A `transition` on `background-color`, `border-color`, and `color` on every element produces a smooth animated theme switch.
+Two complete CSS variable sets defined in `index.css`:
+- `:root, [data-theme="night"]` — navy dark palette
+- `[data-theme="day"]` — white/indigo light palette
+
+`App.js` calls `document.documentElement.setAttribute('data-theme', theme)` on every theme change. A global `transition` rule on `*` makes every color change animate smoothly.
+
+```js
+// Persisted in localStorage, day mode by default
+const [theme, setTheme] = useState(() =>
+  localStorage.getItem('softlend-theme') || 'day'
+);
+```
 
 ### Data Fetching
-`App.js` uses an `AbortController` to safely cancel in-flight requests on unmount. A small 800 ms artificial delay showcases the loading spinner. Errors are caught and surfaced via the `ErrorMessage` component with a retry callback.
+Uses `AbortController` to cancel in-flight requests on unmount. An 800 ms artificial delay demonstrates the loading spinner:
+
+```js
+const controller = new AbortController();
+const response = await fetch('/data.json', { signal: controller.signal });
+return () => controller.abort(); // cleanup
+```
 
 ### EMI Formula
 ```
 EMI = [P × r × (1+r)^n] / [(1+r)^n − 1]
 ```
-Where `r = annualRate / 12 / 100`. Computed with `useMemo` so it only recalculates when inputs change.
+Where `r = annualRate ÷ 12 ÷ 100`. Wrapped in `useMemo` — only recalculates on input changes.
 
 ### Debounced Search
-A `useEffect` with a 300 ms `setTimeout` (cleared on cleanup) converts the raw `searchTerm` state into `debouncedSearch`, preventing expensive filter passes on every keystroke.
+```js
+useEffect(() => {
+  const timer = setTimeout(() => setDebouncedSearch(searchTerm.trim()), 300);
+  return () => clearTimeout(timer); // cancel on each keystroke
+}, [searchTerm]);
+```
 
 ### Offer Lock Logic
 ```js
 const isUnlocked = offer.min_score_required <= cibilScore;
 ```
-A simple comparison drives the entire locked/unlocked UI split — badge, card style, accept button visibility, and filter tab counts.
+Drives badge, card style, button visibility, and filter tab counts — all from one comparison.
 
 ### Score Simulator
-Builds a "what-if" state where users tick off credit factors one by one. Each checked factor adds its `estimated_score_gain` to the current score (capped at 900) and shows which loan offers would become unlocked.
+Tracks a `Set` of checked factor IDs. Gain = sum of `estimated_score_gain` for all checked factors (capped at 900). Highlights which locked loan offers would newly unlock.
 
 ---
 
-## 📦 Static Data Shape
+## 📦 Data Schema (`public/data.json`)
 
 ```json
 {
@@ -133,6 +208,22 @@ Builds a "what-if" state where users tick off credit factors one by one. Each ch
       "impact": "high",
       "estimated_score_gain": 35,
       "action": "Pay down your HDFC credit card from ₹43,500 to below ₹15,000"
+    },
+    {
+      "factor": "Missed EMI",
+      "current_value": "2 missed in 2023",
+      "ideal_value": "0 missed",
+      "impact": "high",
+      "estimated_score_gain": 25,
+      "action": "Clear overdue amount of ₹4,200 on Bajaj Finserv loan"
+    },
+    {
+      "factor": "Credit age",
+      "current_value": "1.2 years",
+      "ideal_value": "3+ years",
+      "impact": "medium",
+      "estimated_score_gain": 10,
+      "action": "Avoid closing your oldest credit card — let it age"
     }
   ],
   "loan_offers": [
@@ -153,60 +244,75 @@ Builds a "what-if" state where users tick off credit factors one by one. Each ch
 
 ---
 
-## 🛠️ Getting Started
+## 🚀 Getting Started (Local)
 
 ### Prerequisites
 - Node.js ≥ 16
 - npm ≥ 8
 
-### Installation
+### Run Locally
 
 ```bash
-# Clone or unzip the project
-cd softlend
+# 1. Clone the repository
+git clone https://github.com/Vijay417-sys/Softlend-internship-assignment.git
+cd Softlend-internship-assignment
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Start the development server
+# 3. Start development server
 npm start
+# Opens at http://localhost:3000
 ```
-
-The app opens at **http://localhost:3000**.
 
 ### Build for Production
 
 ```bash
 npm run build
+# Output in /build — deploy to any static host
 ```
-
-Output is in the `build/` directory — ready to deploy on any static host (Netlify, Vercel, GitHub Pages, etc.).
 
 ---
 
-## 📱 Responsive Design
+## 📱 Responsive Breakpoints
 
 | Breakpoint | Behaviour |
 |---|---|
-| `> 900px` | Two-column layout (form + result side by side in EMI Calculator) |
-| `768px` | Single-column, compact nav tabs, hidden theme label |
-| `480px` | Compact preset buttons, smaller inputs |
+| `> 900px` | Two-column layout in EMI Calculator (form + result side by side) |
+| `≤ 768px` | Single-column layout, compact nav tabs, theme label hidden |
+| `≤ 480px` | Compact preset buttons, smaller inputs, tighter spacing |
 
 ---
 
-## 🎨 Design Tokens (CSS Variables)
+## 🎨 Design Tokens
 
-| Variable | Night | Day |
+| CSS Variable | ☀️ Day | 🌙 Night |
 |---|---|---|
-| `--bg-base` | `#0f1219` | `#f5f5ff` |
-| `--bg-card` | `#1e2638` | `#ffffff` |
-| `--color-primary` | `#6366f1` | `#4f46e5` |
-| `--color-green` | `#10b981` | `#059669` |
-| `--color-amber` | `#f59e0b` | `#d97706` |
-| `--text-primary` | `#e8eaf0` | `#1a1a3a` |
+| `--bg-base` | `#f5f5ff` | `#0f1219` |
+| `--bg-surface` | `#ffffff` | `#161c28` |
+| `--bg-card` | `#ffffff` | `#1e2638` |
+| `--bg-elevated` | `#f0f0fa` | `#2b3650` |
+| `--color-primary` | `#4f46e5` | `#6366f1` |
+| `--color-green` | `#059669` | `#10b981` |
+| `--color-amber` | `#d97706` | `#f59e0b` |
+| `--text-primary` | `#1a1a3a` | `#e8eaf0` |
+| `--text-muted` | `#8080b0` | `#5a6880` |
 
 ---
 
-## 🧑‍💻 Author
+## 👤 Author
 
-Built as a frontend assignment demonstrating React architecture, CSS Modules theming, interactive UI components, and clean data-driven design.
+**Vijay Hosapeti**
+
+- 🌐 Portfolio: [vijay-portfolio-lemon.vercel.app](https://vijay-portfolio-lemon.vercel.app/)
+- 💼 GitHub: [github.com/Vijay417-sys](https://github.com/Vijay417-sys)
+
+---
+
+<div align="center">
+
+Built with ❤️ as a frontend internship assignment for **Softlend Fintech**
+
+© 2024 — Credit data is simulated for demo purposes only.
+
+</div>
