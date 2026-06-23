@@ -100,7 +100,7 @@
   animation: drawCheck 0.4s ease 0.7s forwards;
 }
 
-/* Confetti dots */
+/* Confetti dots — 8 directions, pre-calculated (cos/sin not supported in CRA postcss) */
 .confetti {
   position: absolute;
   width: 8px;
@@ -109,13 +109,19 @@
   top: 50%;
   left: 50%;
   background: var(--color-green);
-  animation: burst 0.6s ease calc(0.8s + var(--i) * 0.05s) both;
   transform-origin: center;
+  opacity: 0;
 }
 
-.confetti:nth-child(even)  { background: var(--color-primary-light); }
-.confetti:nth-child(3n)    { background: var(--color-amber); }
-.confetti:nth-child(4n)    { background: var(--color-accent); }
+/* Direction assignments per child (45° increments) */
+/* 0°  → right      */ .confetti:nth-child(1)  { animation: burst0 0.65s ease 0.80s both; }
+/* 45° → down-right */ .confetti:nth-child(2)  { animation: burst1 0.65s ease 0.85s both; background: var(--color-primary-light); }
+/* 90° → down       */ .confetti:nth-child(3)  { animation: burst2 0.65s ease 0.82s both; background: var(--color-amber); }
+/* 135°→ down-left  */ .confetti:nth-child(4)  { animation: burst3 0.65s ease 0.87s both; background: var(--color-accent); }
+/* 180°→ left       */ .confetti:nth-child(5)  { animation: burst4 0.65s ease 0.81s both; background: var(--color-primary-light); }
+/* 225°→ up-left    */ .confetti:nth-child(6)  { animation: burst5 0.65s ease 0.86s both; background: var(--color-amber); }
+/* 270°→ up         */ .confetti:nth-child(7)  { animation: burst6 0.65s ease 0.83s both; }
+/* 315°→ up-right   */ .confetti:nth-child(8)  { animation: burst7 0.65s ease 0.88s both; background: var(--color-accent); }
 
 /* ===== Text ===== */
 .title {
@@ -294,23 +300,15 @@
   to { stroke-dashoffset: 0; }
 }
 
-@keyframes burst {
-  0%   { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-  60%  {
-    transform: translate(
-      calc(-50% + cos(calc(var(--i) * 45deg)) * 50px),
-      calc(-50% + sin(calc(var(--i) * 45deg)) * 50px)
-    ) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(
-      calc(-50% + cos(calc(var(--i) * 45deg)) * 70px),
-      calc(-50% + sin(calc(var(--i) * 45deg)) * 70px)
-    ) scale(0.3);
-    opacity: 0;
-  }
-}
+/* Pre-calculated burst directions (replaces cos/sin which CRA's postcss-calc cannot parse) */
+/* 0°   right       */ @keyframes burst0 { 0% { transform: translate(-50%,-50%) scale(0); opacity:1; } 60% { transform: translate(0,-50%) scale(1); opacity:1; } 100% { transform: translate(20px,-50%) scale(0.3); opacity:0; } }
+/* 45°  down-right  */ @keyframes burst1 { 0% { transform: translate(-50%,-50%) scale(0); opacity:1; } 60% { transform: translate(-15px,-15px) scale(1); opacity:1; } 100% { transform: translate(-1px,-1px) scale(0.3); opacity:0; } }
+/* 90°  down        */ @keyframes burst2 { 0% { transform: translate(-50%,-50%) scale(0); opacity:1; } 60% { transform: translate(-50%,0) scale(1); opacity:1; } 100% { transform: translate(-50%,20px) scale(0.3); opacity:0; } }
+/* 135° down-left   */ @keyframes burst3 { 0% { transform: translate(-50%,-50%) scale(0); opacity:1; } 60% { transform: translate(-85px,-15px) scale(1); opacity:1; } 100% { transform: translate(-99px,-1px) scale(0.3); opacity:0; } }
+/* 180° left        */ @keyframes burst4 { 0% { transform: translate(-50%,-50%) scale(0); opacity:1; } 60% { transform: translate(-100%,-50%) scale(1); opacity:1; } 100% { transform: translate(-120%,-50%) scale(0.3); opacity:0; } }
+/* 225° up-left     */ @keyframes burst5 { 0% { transform: translate(-50%,-50%) scale(0); opacity:1; } 60% { transform: translate(-85px,-85px) scale(1); opacity:1; } 100% { transform: translate(-99px,-99px) scale(0.3); opacity:0; } }
+/* 270° up          */ @keyframes burst6 { 0% { transform: translate(-50%,-50%) scale(0); opacity:1; } 60% { transform: translate(-50%,-100%) scale(1); opacity:1; } 100% { transform: translate(-50%,-120%) scale(0.3); opacity:0; } }
+/* 315° up-right    */ @keyframes burst7 { 0% { transform: translate(-50%,-50%) scale(0); opacity:1; } 60% { transform: translate(-15px,-85px) scale(1); opacity:1; } 100% { transform: translate(-1px,-99px) scale(0.3); opacity:0; } }
 
 @media (max-width: 480px) {
   .popup {
