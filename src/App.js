@@ -20,7 +20,7 @@ function App() {
 
   // Theme: 'night' | 'day'  — persisted in localStorage
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('softlend-theme') || 'night';
+    return localStorage.getItem('softlend-theme') || 'day';
   });
 
   // Apply theme attribute to <html> whenever it changes
