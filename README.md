@@ -2,7 +2,7 @@
 
 
 
-- 🌐 Live App : [https://softlend-internship-assignment-sgsh.vercel.app/)
+- 🌐 Live App : https://softlend-internship-assignment-sgsh.vercel.app/
 - 🌐 Portfolio: [vijay-portfolio-lemon.vercel.app](https://vijay-portfolio-lemon.vercel.app/)
 - 💼 GitHub: [github.com/Vijay417-sys](https://github.com/Vijay417-sys/Softlend-internship-assignment)
 
