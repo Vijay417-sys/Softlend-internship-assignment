@@ -2,9 +2,9 @@
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://softlend-internship-assignment-sgsh.vercel.app/)
-[![Portfolio](https://img.shields.io/badge/👤%20Portfolio-Vijay-6366f1?style=for-the-badge)](https://vijay-portfolio-lemon.vercel.app/)
-[![GitHub](https://img.shields.io/badge/📦%20GitHub-Repository-24292e?style=for-the-badge&logo=github)](https://github.com/Vijay417-sys/Softlend-internship-assignment)
+- 🌐 Live App](https://softlend-internship-assignment-sgsh.vercel.app/
+- 🌐 Portfolio: [vijay-portfolio-lemon.vercel.app](https://vijay-portfolio-lemon.vercel.app/)
+- 💼 GitHub: [github.com/Vijay417-sys](https://github.com/Vijay417-sys/Softlend-internship-assignment)
 
 **A fully responsive React fintech dashboard — credit score visualization, loan marketplace, EMI calculator, and day/night theming.**
 
