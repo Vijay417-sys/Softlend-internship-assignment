@@ -1,6 +1,6 @@
 # 💳 Softlend — Credit Health & Loan Marketplace Dashboard
 
-<div align="center">
+
 
 - 🌐 Live App](https://softlend-internship-assignment-sgsh.vercel.app/
 - 🌐 Portfolio: [vijay-portfolio-lemon.vercel.app](https://vijay-portfolio-lemon.vercel.app/)
@@ -8,9 +8,7 @@
 
 **A fully responsive React fintech dashboard — credit score visualization, loan marketplace, EMI calculator, and day/night theming.**
 
-[🌐 Live App](https://softlend-internship-assignment-sgsh.vercel.app/) &nbsp;·&nbsp; [👤 Portfolio](https://vijay-portfolio-lemon.vercel.app/) &nbsp;·&nbsp; [📦 Source Code](https://github.com/Vijay417-sys/Softlend-internship-assignment)
 
-</div>
 
 ---
 
