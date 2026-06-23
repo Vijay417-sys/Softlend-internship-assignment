@@ -1,0 +1,69 @@
+{
+  "customer": {
+    "id": "C001",
+    "name": "Ravi Kumar",
+    "cibil_score": 620,
+    "score_updated_at": "2024-01-10"
+  },
+  "score_factors": [
+    {
+      "factor": "Credit utilisation",
+      "current_value": "87%",
+      "ideal_value": "below 30%",
+      "impact": "high",
+      "estimated_score_gain": 35,
+      "action": "Pay down your HDFC credit card from ₹43,500 to below ₹15,000"
+    },
+    {
+      "factor": "Missed EMI",
+      "current_value": "2 missed in 2023",
+      "ideal_value": "0 missed",
+      "impact": "high",
+      "estimated_score_gain": 25,
+      "action": "Clear overdue amount of ₹4,200 on Bajaj Finserv loan"
+    },
+    {
+      "factor": "Credit age",
+      "current_value": "1.2 years",
+      "ideal_value": "3+ years",
+      "impact": "medium",
+      "estimated_score_gain": 10,
+      "action": "Avoid closing your oldest credit card — let it age"
+    }
+  ],
+  "loan_offers": [
+    {
+      "id": "OFF001",
+      "lender": "HDFC Bank",
+      "amount": 500000,
+      "interest_rate": 10.5,
+      "tenure_months": 36,
+      "processing_fee": 2500,
+      "status": "active",
+      "emi": 16253,
+      "min_score_required": 700
+    },
+    {
+      "id": "OFF002",
+      "lender": "Bajaj Finserv",
+      "amount": 300000,
+      "interest_rate": 13.0,
+      "tenure_months": 24,
+      "processing_fee": 1500,
+      "status": "active",
+      "emi": 14274,
+      "min_score_required": 620
+    },
+    {
+      "id": "OFF003",
+      "lender": "ICICI Bank",
+      "amount": 750000,
+      "interest_rate": 11.0,
+      "tenure_months": 48,
+      "processing_fee": 3000,
+      "status": "active",
+      "emi": 19317,
+      "min_score_required": 720
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+.container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  margin-top: 32px;
+  animation: fadeIn 0.4s ease;
+}
+
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.projectedBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 2px solid;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color var(--transition-base), color var(--transition-base);
+  flex-shrink: 0;
+}
+
+.projectedNum {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: color var(--transition-base);
+}
+
+.projectedLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Progress */
+.progressTrack {
+  position: relative;
+  height: 8px;
+  background: var(--bg-elevated);
+  border-radius: 4px;
+  overflow: visible;
+  margin-bottom: 8px;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.currentMarker {
+  position: absolute;
+  top: -3px;
+  width: 14px;
+  height: 14px;
+  background: var(--color-primary);
+  border: 2px solid var(--bg-card);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* Factor toggles */
+.factors {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.factorToggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.factorToggle:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  background: var(--bg-card-hover);
+}
+
+.factorSelected {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  background: rgba(16, 185, 129, 0.06) !important;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-green);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.factorInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.factorName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.factorAction {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.factorGain {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-green);
+  flex-shrink: 0;
+}
+
+/* Unlock alert */
+.unlockAlert {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md);
+  animation: scaleIn 0.3s ease;
+}
+
+.unlockIcon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.unlockTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-green);
+  margin-bottom: 6px;
+}
+
+.unlockList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.unlockList li {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+}
+
+.hint {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .headerRow {
+    flex-direction: column;
+  }
+  .progressLabels {
+    font-size: 0.62rem;
+  }
+}

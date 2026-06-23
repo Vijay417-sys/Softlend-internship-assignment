@@ -1,0 +1,268 @@
+.card {
+  border-radius: var(--radius-xl);
+  border: 1px solid;
+  padding: 22px;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  animation: fadeIn 0.4s ease both;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Unlocked state */
+.unlocked {
+  background: var(--bg-card);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.unlocked:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* Locked state */
+.locked {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--border-subtle);
+  filter: saturate(0.3);
+}
+
+.locked * {
+  pointer-events: none;
+}
+
+/* ===== Card header ===== */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lenderInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lenderAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.lenderName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.offerId {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.statusArea {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badgeUnlocked {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badgeLocked {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.statusBadge {
+  padding: 4px 10px;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* ===== Amount row ===== */
+.amountRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--color-primary-bg), rgba(99, 102, 241, 0.04));
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-md);
+}
+
+.amountLabel {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.amount {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-primary-light);
+  letter-spacing: -0.03em;
+}
+
+/* ===== Details grid ===== */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.detailItem {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detailLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.detailValue {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.emiValue {
+  color: var(--color-primary-light);
+}
+
+.detailSub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* Min score */
+.minScoreRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.minScoreLabel {
+  color: var(--text-muted);
+}
+
+.minScoreValue {
+  font-weight: 700;
+  color: var(--color-primary-light);
+}
+
+.minScoreLocked {
+  color: var(--text-muted);
+}
+
+/* Accept button */
+.acceptBtn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.925rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+  margin-top: auto;
+  pointer-events: all;
+}
+
+.acceptBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.4);
+}
+
+.acceptBtn:active {
+  transform: translateY(0);
+}
+
+/* ===== Locked body ===== */
+.lockedBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.lockedIcon {
+  font-size: 2.4rem;
+  opacity: 0.5;
+}
+
+.lockedTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.lockedMessage {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.lockedGap {
+  color: var(--color-amber);
+}
+
+.lockedDetails {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}

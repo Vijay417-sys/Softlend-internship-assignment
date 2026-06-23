@@ -1,0 +1,306 @@
+.container {
+  animation: fadeIn 0.4s ease;
+}
+
+/* ===== Hero section ===== */
+.heroSection {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 24px;
+  margin-bottom: 36px;
+  align-items: start;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.greeting {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.wave {
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.id {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.scoreInfo {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.scoreInfoLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.scoreRingWrap {
+  /* Let the ring breathe */
+}
+
+.updatedAt {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ===== Hero right ===== */
+.heroRight {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.potentialCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+}
+
+.potentialHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.potentialIcon {
+  font-size: 1.4rem;
+}
+
+.potentialTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.potentialSubtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  margin-left: 36px;
+}
+
+/* Score comparison */
+.scoreComparison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.scoreBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.scoreBoxNum {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.scoreBoxLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.scoreArrow {
+  font-size: 1.8rem;
+  color: var(--text-muted);
+}
+
+/* Gain banner */
+.gainBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-md);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-green);
+  margin-bottom: 20px;
+}
+
+.gainSub {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* Progress bars */
+.progressTrack {
+  position: relative;
+  height: 10px;
+  background: var(--bg-elevated);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progressPotential {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(16, 185, 129, 0.25);
+  border-radius: 5px;
+  transition: width 1s ease;
+}
+
+.progressCurrent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s ease;
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Stats row */
+.statsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statChip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+}
+
+.statImpact {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.statLabel {
+  flex: 1;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.statGain {
+  font-weight: 700;
+  color: var(--color-green);
+}
+
+/* ===== Improvement plan ===== */
+.planSection {
+  margin-bottom: 12px;
+}
+
+.planHeader {
+  margin-bottom: 20px;
+}
+
+.planTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.planSubtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.factorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+.emptyFactors {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: var(--color-green);
+  font-size: 1rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+  }
+  .heroLeft {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .scoreInfo {
+    flex: 1;
+    min-width: 220px;
+  }
+  .greeting {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroLeft {
+    flex-direction: column;
+  }
+  .factorGrid {
+    grid-template-columns: 1fr;
+  }
+  .scoreComparison {
+    gap: 12px;
+  }
+  .scoreBoxNum {
+    font-size: 2.2rem;
+  }
+}
